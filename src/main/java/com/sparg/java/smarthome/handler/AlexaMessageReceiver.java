@@ -1,10 +1,10 @@
 package com.sparg.java.smarthome.handler;
 
+import java.util.List;
+
 import com.amazonaws.AmazonClientException;
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;
-import com.amazonaws.regions.Region;
-import com.amazonaws.regions.Regions;
 import com.amazonaws.services.sqs.AmazonSQS;
 import com.amazonaws.services.sqs.AmazonSQSClient;
 import com.amazonaws.services.sqs.model.DeleteMessageRequest;
@@ -15,9 +15,6 @@ import com.sparg.java.smarthome.message.utils.JSONUtil;
 import org.apache.commons.collections.CollectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.Collections;
-import java.util.List;
 
 /**
  * Created by vimalniroshan on 6/13/16.
@@ -48,7 +45,6 @@ public class AlexaMessageReceiver {
         }
 
         sqs = new AmazonSQSClient(credentials);
-        sqs.setRegion(Region.getRegion(Regions.US_EAST_1));
         messageQueueUrl = sqs.getQueueUrl(MESSAGE_QUEUE).getQueueUrl();
 
     }

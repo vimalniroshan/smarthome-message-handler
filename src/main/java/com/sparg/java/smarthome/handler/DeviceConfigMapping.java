@@ -1,17 +1,17 @@
 package com.sparg.java.smarthome.handler;
 
-import com.sparg.java.smarthome.message.model.LightName;
-import com.sparg.java.smarthome.message.model.LightState;
-
 import java.util.HashMap;
 import java.util.Map;
+
+import com.sparg.java.smarthome.message.model.LightName;
+import com.sparg.java.smarthome.message.model.LightState;
 
 /**
  * Created by vimalniroshan on 6/14/16.
  */
 public class DeviceConfigMapping {
 
-    private static final String commandTemplate = "./send %s %s %s";
+    private static final String commandTemplate = "./send %s";
 
     private static Map<LightName, String> deviceNameToDeviceCode = new HashMap<LightName, String>();
 
