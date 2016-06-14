@@ -21,22 +21,10 @@ public class SmartHomeProcessor {
 
             if (changeLightState != null) {
                 log.info("Message Received {} {}", changeLightState.getLightName(), changeLightState.getLightState());
-                log.info("Trying to take action based on message");
-                performAction(changeLightState);
+                DeviceHandler.executeCommand(changeLightState);
             } else {
                 log.info("No message received");
             }
-        }
-    }
-
-    private static void performAction(ChangeLightState changeLightState) {
-        try {
-            //Runtime.getRuntime().exec(DeviceConfigMapping.getTargetCommand(changeLightState.getLightName(),
-              //      changeLightState.getLightState()));
-            log.info("Executed action '{}' on message", DeviceConfigMapping.getTargetCommand(changeLightState.getLightName(),
-                    changeLightState.getLightState()));
-        } catch (Exception e) {
-            log.error("Exception while invoking target command ", e);
         }
     }
 }
